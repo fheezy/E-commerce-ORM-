@@ -51,10 +51,8 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new category
   Category.create({
-    category_name: req.body.category_name
-  })
-    .then(newCategory => res.status(200).json(newCategory))
-    .catch(err => res.status(400).json(err))
+    category_name: req.body.category_name})
+  .then(dbCategoryData => res.json(dbCategoryData));
 });
 
 router.put('/:id', (req, res) => {
